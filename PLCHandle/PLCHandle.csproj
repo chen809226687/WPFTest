@@ -9,7 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Sinsegye.PLCHandler" Version="1.1.1" />
+    <ProjectReference Include="..\..\..\C#_Sinsegye\Handle\sinsegye.plchandler\Sinsegye.PLCHandler\Sinsegye.PLCHandler.csproj" />
   </ItemGroup>
 
 </Project>

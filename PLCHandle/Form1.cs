@@ -15,15 +15,17 @@ namespace PLCHandle
         private void Form1_Load(object sender, EventArgs e)
         {
 
-            bool flag = handler.Init("192.168.110.202");
-            flag = handler.Connect(ref mesg);
-            handler.VariableChangedEvent += _sinsegyeClient_VariableChangedEvent;
         }
 
         private void _sinsegyeClient_VariableChangedEvent(object? sender, VariableChangedArgs e)
         {
 
-           //订阅变量处理逻辑
+            this.Invoke(new Action(() =>
+            {
+                textBox4.Text = e.Value.ToString();
+            }));
+
+            //订阅变量处理逻辑
         }
 
         Type Type;
@@ -35,7 +37,7 @@ namespace PLCHandle
                     Type = typeof(bool);
                     break;
                 case 1:
-                    Type = typeof(int);
+                    Type = typeof(Int16);
                     break;
                 case 2:
                     Type = typeof(byte);
@@ -51,14 +53,14 @@ namespace PLCHandle
         }
 
         private void button1_Click(object sender, EventArgs e)
-         {
+        {
             if (Type != null)
             {
                 try
                 {
                     object obj = null;
-                    bool flag = handler.RegVariable(textBox1.Text, Type, obj, ref mesg);
-                    handler.RemoveAllReg
+                    bool flag = handler.RegVariable(textBox1.Text, Type, ref mesg);
+
                 }
                 catch { }
             }
@@ -79,7 +81,7 @@ namespace PLCHandle
                     object obj = null;
                     bool flag = handler.ReadPlc(textBox1.Text, Type, out obj);
                     textBox2.Text = obj.ToString();
-          
+
                 }
                 catch { }
             }
@@ -95,21 +97,25 @@ namespace PLCHandle
             try
             {
                 object obj = null;
-                bool flag = handler.WritePlc(textBox1.Text, textBox3.Text, ref mesg);
+                bool flag = handler.WritePlc(textBox1.Text, textBox3.Text, Type, ref mesg);
             }
             catch { }
-          
+
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-
-            var aaa = handler.ReadVariableListAsync();
-            foreach (var x in aaa)
+            try
             {
+                var aaa = handler.ReadVariableListAsync();
+                foreach (var x in aaa)
+                {
 
-                listBox1.Items.Add(x.Name);
+                    listBox1.Items.Add(x.Name);
+                }
             }
+            catch { }
+
 
         }
 
@@ -117,6 +123,48 @@ namespace PLCHandle
         {
             textBox1.Text = listBox1.SelectedItem.ToString();
 
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                bool flag = handler.Init("192.168.110.202");
+                flag = handler.Connect(ref mesg);
+                handler.VariableChangedEvent += _sinsegyeClient_VariableChangedEvent;
+
+            }
+            catch
+            {
+
+            }
+
+        }
+
+        bool flag;
+        private void button8_Click(object sender, EventArgs e)
+        {
+
+          IList<BatchReadValueArgs>  batchReadValueArgs = new List<BatchReadValueArgs>()
+          {
+              //new BatchReadValueArgs
+              //{
+              //    Name = "Application.GVL_PARAM.DustClear_DelaySet",
+              //    Type = typeof(short),
+              //},
+               new BatchReadValueArgs
+              {
+                  Name = "Application.GVL_PARAM.TCP_IPAdr",
+                  Type = typeof(string),
+              }
+          };
+
+            IList<Variable> variables = new List<Variable>();
+           flag = handler.BatchReadPlc(batchReadValueArgs,out variables, ref mesg);
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
         }
     }
 }

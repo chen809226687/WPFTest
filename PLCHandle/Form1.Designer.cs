@@ -40,6 +40,9 @@
             button4 = new Button();
             listBox1 = new ListBox();
             button5 = new Button();
+            button6 = new Button();
+            button7 = new Button();
+            button8 = new Button();
             SuspendLayout();
             // 
             // button1
@@ -123,7 +126,7 @@
             // 
             // button4
             // 
-            button4.Location = new Point(404, 36);
+            button4.Location = new Point(596, 48);
             button4.Name = "button4";
             button4.Size = new Size(100, 44);
             button4.TabIndex = 10;
@@ -135,14 +138,14 @@
             // 
             listBox1.FormattingEnabled = true;
             listBox1.ItemHeight = 17;
-            listBox1.Location = new Point(539, 12);
+            listBox1.Location = new Point(731, 24);
             listBox1.Name = "listBox1";
             listBox1.Size = new Size(372, 327);
             listBox1.TabIndex = 11;
             // 
             // button5
             // 
-            button5.Location = new Point(404, 195);
+            button5.Location = new Point(596, 207);
             button5.Name = "button5";
             button5.Size = new Size(100, 44);
             button5.TabIndex = 12;
@@ -150,11 +153,44 @@
             button5.UseVisualStyleBackColor = true;
             button5.Click += button5_Click;
             // 
+            // button6
+            // 
+            button6.Location = new Point(136, -1);
+            button6.Name = "button6";
+            button6.Size = new Size(78, 31);
+            button6.TabIndex = 13;
+            button6.Text = "连接";
+            button6.UseVisualStyleBackColor = true;
+            button6.Click += button6_Click;
+            // 
+            // button7
+            // 
+            button7.Location = new Point(417, 185);
+            button7.Name = "button7";
+            button7.Size = new Size(88, 34);
+            button7.TabIndex = 16;
+            button7.Text = "批量写";
+            button7.UseVisualStyleBackColor = true;
+            button7.Click += button7_Click;
+            // 
+            // button8
+            // 
+            button8.Location = new Point(417, 94);
+            button8.Name = "button8";
+            button8.Size = new Size(88, 34);
+            button8.TabIndex = 14;
+            button8.Text = "批量读";
+            button8.UseVisualStyleBackColor = true;
+            button8.Click += button8_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1001, 363);
+            ClientSize = new Size(1153, 363);
+            Controls.Add(button7);
+            Controls.Add(button8);
+            Controls.Add(button6);
             Controls.Add(button5);
             Controls.Add(listBox1);
             Controls.Add(button4);
@@ -188,5 +224,8 @@
         private Button button4;
         private ListBox listBox1;
         private Button button5;
+        private Button button6;
+        private Button button7;
+        private Button button8;
     }
 }

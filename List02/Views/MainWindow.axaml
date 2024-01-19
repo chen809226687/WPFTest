@@ -1,0 +1,31 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:List02.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="List02.Views.MainWindow"
+         xmlns:local="using:List02.USER"
+        x:DataType="vm:MainWindowViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="List02">
+
+  <Grid ColumnDefinitions="300,*">
+
+    <DockPanel Margin="20">
+      <TextBlock Margin="0 5" DockPanel.Dock="Top" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20">选择配方</TextBlock>
+      <ListBox ItemsSource="{Binding Formula}" SelectedItem="{Binding Fo}">
+        <ListBox.ItemTemplate>
+          <DataTemplate>
+            <TextBlock Grid.Column="0" Text="{Binding Name}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+          </DataTemplate>
+
+        </ListBox.ItemTemplate>
+      </ListBox>
+    </DockPanel>
+
+    <local:UserControl1 Grid.Column="1"></local:UserControl1>
+    
+    
+    </Grid>
+</Window>
