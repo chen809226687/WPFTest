@@ -1,0 +1,66 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="400" Width="800" Height="400"
+             x:Class="AvaloniaMAXTest.UserControl1">
+
+
+  <Border Grid.Row="0"  Grid.Column="1" Background="White" BorderBrush="#FFF3F3F3" Margin="10">
+    <Grid RowDefinitions="30,30,*,2*,*,2*,*,30">
+      <Label Grid.Row="0" Content="线框图" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
+      <StackPanel Orientation="Horizontal" Grid.Row="2" Margin="300 0 0 0">
+        <Button  Width="50" Height="50" Background="Transparent" BorderBrush="Transparent" BorderThickness="0" >
+          <Image Width="50" Height="50" Source="/Assets/加号.png"></Image>
+        </Button>
+        <Label FontSize="40" HorizontalAlignment="Center" VerticalAlignment="Center">X</Label>
+        <Button  Width="50" Height="50" Background="Transparent" BorderBrush="Transparent" BorderThickness="0" >
+          <Image Width="50" Height="50" Source="/Assets/减号.png"></Image>
+        </Button>
+      </StackPanel>
+      <StackPanel Orientation="Horizontal" Grid.Row="3" Margin="250 0 0 0">
+        <Button  Width="50" Height="50" Background="Transparent" BorderBrush="Transparent" BorderThickness="0" >
+          <Image Width="50" Height="50" Source="/Assets/手掌.png"></Image>
+        </Button>
+        <Image Margin="17 10 0 0" Width="100" Height="100" Source="/Assets/三环同心圆.png"></Image>
+      </StackPanel>
+      <StackPanel Orientation="Horizontal" Grid.Row="4" Margin="150 10 0 0">
+        <Button Margin="50 0 0 0" Width="50" Height="50" Background="Transparent" BorderBrush="Transparent" BorderThickness="0" >
+          <Image Width="50" Height="50" Source="/Assets/料斗.png"></Image>
+        </Button>
+        <Image Source="/Assets/传送带.png"></Image>
+        <Image Source="/Assets/传送带.png"></Image>
+        <Image Source="/Assets/传送带.png"></Image>
+        <Image Source="/Assets/传送带.png"></Image>
+        <Image Source="/Assets/传送带.png"></Image>
+        <Image Source="/Assets/传送带.png"></Image>
+        <Button Margin="0 0 0 0" Width="50" Height="50" Background="Transparent" BorderBrush="Transparent" BorderThickness="0" >
+          <Image Width="50" Height="50" Source="/Assets/料斗.png"></Image>
+        </Button>
+        <Image Source="/Assets/传送带.png"></Image>
+        <Image Source="/Assets/传送带.png"></Image>
+        <Image Source="/Assets/传送带.png"></Image>
+        <Button Margin="0 0 0 0" Width="50" Height="50" Background="Transparent" BorderBrush="Transparent" BorderThickness="0" >
+          <Image Width="50" Height="50" Source="/Assets/料斗.png"></Image>
+        </Button>
+      </StackPanel>
+      <StackPanel Orientation="Horizontal" Grid.Row="5" Margin="250 0 0 0">
+        <Button  Width="50" Height="50" Background="Transparent" BorderBrush="Transparent" BorderThickness="0" >
+          <Image Width="50" Height="50" Source="/Assets/手掌.png"></Image>
+        </Button>
+        <Image Margin="17 0 0 0" Width="100" Height="100" Source="/Assets/三环同心圆.png"></Image>
+      </StackPanel>
+      <StackPanel Orientation="Horizontal" Grid.Row="6" Margin="300 0 0 0">
+        <Button  Width="50" Height="50" Background="Transparent" BorderBrush="Transparent" BorderThickness="0" >
+          <Image Width="50" Height="50" Source="/Assets/加号.png"></Image>
+        </Button>
+        <Label FontSize="40" HorizontalAlignment="Center" VerticalAlignment="Center">X</Label>
+        <Button  Width="50" Height="50" Background="Transparent" BorderBrush="Transparent" BorderThickness="0" >
+          <Image Width="50" Height="50" Source="/Assets/减号.png"></Image>
+        </Button>
+      </StackPanel>
+    </Grid>
+  </Border>
+  
+  
+</UserControl>

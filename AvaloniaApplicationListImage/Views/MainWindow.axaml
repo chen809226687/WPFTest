@@ -1,0 +1,35 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:AvaloniaApplicationListImage.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="AvaloniaApplicationListImage.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="AvaloniaApplicationListImage">
+
+
+  <Window.Styles>
+  </Window.Styles>
+
+  <Grid  RowDefinitions="*,*" ColumnDefinitions="*,*">
+    <ListBox ItemsSource="{Binding Images}" Grid.Row="0" Grid.Column="0" Classes="bbb">
+
+        <ListBox.ItemTemplate Classes="bbb">
+          <DataTemplate>
+            <Image Source="{Binding ImagePath}" Stretch="Fill"  />
+          </DataTemplate>
+          </ListBox.ItemTemplate >
+
+    </ListBox>
+    <Grid Grid.Row="1">
+      <StackPanel>
+        <Button Classes="bbb">
+        </Button>
+      </StackPanel>
+    </Grid>
+  </Grid>
+
+
+</Window>

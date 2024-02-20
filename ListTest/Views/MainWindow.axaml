@@ -9,34 +9,24 @@
         Icon="/Assets/avalonia-logo.ico"
         Title="ListTest">
 
-  <Grid ColumnDefinitions="300,*">
+  <Grid >
 
-    <DockPanel Margin="20">
-      <TextBlock Margin="0 5" DockPanel.Dock="Top" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20">选择配方</TextBlock>
-      <ListBox ItemsSource="{Binding Formula}" SelectedItem="{Binding Form}">
-        <ListBox.ItemTemplate>
-          <DataTemplate>
-            <TextBlock Grid.Column="0"  Text="{Binding Name}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-          </DataTemplate>
+    <ItemsControl ItemsSource="{Binding Items}">
+      <ItemsControl.ItemsPanel>
+        <ItemsPanelTemplate>
+          <UniformGrid Rows="5" Columns="5"/>
+          <!-- 设置行和列的数量 -->
+        </ItemsPanelTemplate>
+      </ItemsControl.ItemsPanel>
+      <ItemsControl.ItemTemplate>
+        <DataTemplate>
+          <Border Padding="0.5" Background="LightGray">
+            <TextBlock Text="{Binding Content}"/>
+          </Border>
+        </DataTemplate>
+      </ItemsControl.ItemTemplate>
+    </ItemsControl>
 
-        </ListBox.ItemTemplate>
-      </ListBox>
-    </DockPanel>
-
-    <Grid Grid.Column="1">
-      <StackPanel>
-        <StackPanel Orientation="Horizontal" Margin="10">
-          <Label> 参数一：</Label>
-          <TextBox Text="{Binding Parameter1}"></TextBox>
-        </StackPanel>
-        <StackPanel Orientation="Horizontal" Margin="10">
-          <Label> 参数二：</Label>
-          <TextBox Text="{Binding Parameter2}"></TextBox>
-        </StackPanel>
-   
-      </StackPanel>
-
-    </Grid>
   </Grid>
 
 </Window>
