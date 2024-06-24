@@ -1,38 +1,27 @@
 ﻿using Avalonia.Controls;
 using Avalonia.Interactivity;
+using ListTest.Views;
+using OpenCvSharp;
 using ReactiveUI;
+using System;
 using System.Collections.ObjectModel;
+using System.Drawing;
 using System.Reactive;
+using System.Text.RegularExpressions;
 
 namespace ListTest.ViewModels
 {
     public class MainWindowViewModel : ViewModelBase
     {
-        public class MyItemModel
-        {
-            public string Content { get; set; }
-            // 其他属性
-        }
-        public ObservableCollection<MyItemModel> Items { get; set; }
+        readonly string _Url = "rtsp://admin:fb123456@192.168.1.64/h264/ch1/main/av_stream";
 
+     
         public MainWindowViewModel()
         {
-            Items = new ObservableCollection<MyItemModel>();
-            // 添加示例数据
-            Items.Add(new MyItemModel { Content = "Item 1" });
-            Items.Add(new MyItemModel { Content = "Item 2" });
-            Items.Add(new MyItemModel { Content = "Item 3" });
-            Items.Add(new MyItemModel { Content = "Item 4" });
-            Items.Add(new MyItemModel { Content = "Item 5" });
-            Items.Add(new MyItemModel { Content = "Item 6" });
-            Items.Add(new MyItemModel { Content = "Item 7" });
-            Items.Add(new MyItemModel { Content = "Item 8" });
 
-            // 更多项...
         }
 
-
-       
-
     }
+
 }
+

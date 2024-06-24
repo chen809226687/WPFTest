@@ -1,0 +1,39 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:SUKIUITest.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450" Width="600" Height="400"
+        x:Class="SUKIUITest.Views.MainWindow"
+        xmlns:controls="clr-namespace:SukiUI.Controls;assembly=SukiUI"
+         xmlns:theme="clr-namespace:SukiUI.Theme;assembly=SukiUI"
+        x:DataType="vm:MainWindowViewModel"
+         xmlns:local="using:SUKIUITest"
+        xmlns:pdf="clr-namespace:PdfiumViewer;assembly=PdfiumViewer"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="SUKIUITest">
+
+
+  <Window.Styles>
+
+
+  </Window.Styles>
+  
+  
+
+<Grid RowDefinitions="*,*">
+
+  <ComboBox >
+    <Button Width="100" Height="30" Content="添加" Command="{Binding aaa}"></Button>
+    <ComboBox.ContextMenu>
+      <ContextMenu>
+        <MenuItem Header="删除" Click=""/>
+      </ContextMenu>
+    </ComboBox.ContextMenu>
+    <ComboBoxItem Content="Option 1"/>
+    <ComboBoxItem Content="Option 2"/>
+    <ComboBoxItem Content="Option 3"/>
+  </ComboBox>
+
+  </Grid>
+</Window>

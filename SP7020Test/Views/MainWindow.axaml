@@ -1,0 +1,31 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:SP7020Test.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="SP7020Test.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="SP7020Test">
+
+
+  <StackPanel>
+    <!--<TextBox Name="text" Text="opc.tcp://192.168."></TextBox>
+    <Button Click="Button_Click">连接</Button>
+    <Label Name="lab"></Label>
+    <Button Click="Button_Click_1">创建</Button>-->
+
+    <DataGrid ItemsSource="{Binding Users}" IsEnabled="False" AutoGenerateColumns="False" RowHeight="40" >
+      <DataGrid.Columns>
+        <DataGridTextColumn Header="用户名"  Binding="{Binding Name}" IsReadOnly="False"/>
+        <DataGridTemplateColumn MinWidth="200"   CanUserResize="False">
+          
+        
+        </DataGridTemplateColumn>
+        </DataGrid.Columns>
+    </DataGrid>
+    
+  </StackPanel>
+  
+</Window>

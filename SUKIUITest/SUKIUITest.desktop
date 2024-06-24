@@ -1,0 +1,9 @@
+﻿[Desktop Entry]
+Name=Test Software
+Name[zh_CN]=测试软件
+Type=Application
+Terminal=false
+Categories=Applicaltion;
+Exec=/usr/share/SUKIUITest/SUKIUITest %U
+Icon=/usr/share/icons/logo.png
+comment[zh_CN]=中科时代RTE控制软件

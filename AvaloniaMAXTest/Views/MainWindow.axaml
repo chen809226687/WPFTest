@@ -10,10 +10,8 @@
         Icon="/Assets/avalonia-logo.ico"
         Title="AvaloniaMAXTest">
   <Grid RowDefinitions="*,*">
-    
-    
-    <local:UserControl1></local:UserControl1>
-    <local:UserControl2 Grid.Row="2"></local:UserControl2>
+
+    <TextBox Width="200" Height="2" Background="Aqua" Text="sw"></TextBox>
     
   </Grid>
 
