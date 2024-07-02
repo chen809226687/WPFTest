@@ -21,6 +21,7 @@ namespace MessageBus
         private void button1_Click(object sender, EventArgs e)
         {
             MessageBus.SendMessage("aaa", "Data to send");
+            MessageBus.SendMessage("bbb", "Data to send");
         }
     }
 }
