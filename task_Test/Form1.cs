@@ -24,6 +24,8 @@ namespace task_Test
         {
             await Task.Run(() =>
              {
+
+
                  int i = 0;
                  while (true)
                  {
