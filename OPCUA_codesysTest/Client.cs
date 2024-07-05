@@ -22,7 +22,7 @@ namespace OPCUA_codesysTest
         /// <summary>
         /// The discover timeout in ms.
         /// </summary>
-        public int DiscoverTimeout { get; set; } = 15000000;
+        public int DiscoverTimeout { get; set; } = 6000000;
         public IUserIdentity UserIdentity { get; set; }
         public string[] PreferredLocales { get; set; } = { "zh-CN", "en" };
 
@@ -132,12 +132,6 @@ namespace OPCUA_codesysTest
         //    return new ReferenceDescriptionCollection();
 
         //}
-
-
-
-
-
-
 
         public void Dispose()
         {

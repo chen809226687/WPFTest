@@ -27,11 +27,10 @@ namespace OPCUA_codesysTest
         {
             InitializeComponent();
 
-
         }
 
         Client client = new Client();
-
+        Session Session;
 
 
 
@@ -49,14 +48,13 @@ namespace OPCUA_codesysTest
 
             try
             {
-                client.Connect(serverUrl, useSecurity).GetAwaiter().GetResult();
+                Session = client.Connect(serverUrl, useSecurity).GetAwaiter().GetResult();
 
 
                 Task task = Task.Run(() =>
                 {
                     addroottree();
                 });
-
 
 
             }
@@ -235,9 +233,6 @@ namespace OPCUA_codesysTest
                         catch (ServiceResultException)
                         {
                         }
-
-
-
 
                     }
                 }
@@ -435,10 +430,58 @@ namespace OPCUA_codesysTest
         private void BrowseTV_AfterCheck(object sender, TreeViewEventArgs e)
         {
             // 当节点被选中时，选中或取消选中其所有子节点
-            foreach (TreeNode node in e.Node.Nodes)
+            /*foreach (TreeNode node in e.Node.Nodes)
             {
                 node.Checked = e.Node.Checked;
-            }
+            }*/
+        }
+
+        int a = 0;
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Task.Run(() =>
+            {
+                while (true)
+                {
+                    Thread.Sleep(100);
+                    if (Session.KeepAliveStopped)
+                    {
+                        a++;
+                    }
+                }
+            });
+           
+
+
+
+
+
+            //try
+            //{
+            //    // Thread.Sleep(5000);
+            //    if (Session.KeepAliveStopped)
+            //    {
+            //        return;
+            //    }
+            //    else
+            //    {
+            //        Node singelnode = Session.ReadNode("ns=4;s=|var|Sinsegye-x86_64-Linux-SM-CNC.Application.GVL.date1");
+            //        label1.Text = singelnode.ToString();
+            //    }
+            //}
+            //catch(Exception ex)
+            //{
+
+            //}
+
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            label1.Text = a.ToString();
+
+            label2.Text = Session.KeepAliveStopped.ToString();
         }
     }
 }
