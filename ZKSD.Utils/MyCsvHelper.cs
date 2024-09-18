@@ -1,5 +1,6 @@
 ﻿using CsvHelper;
 using CsvHelper.Configuration;
+using NPOI.HSSF.Record;
 using System;
 using System.Collections.Generic;
 using System.Formats.Asn1;
@@ -31,7 +32,7 @@ namespace ZKSD.Utils
                     file.Close();
                 }
                 Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
-                using (var writer = new StreamWriter(path, false, Encoding.GetEncoding("GB18030")))
+                using (var writer = new StreamWriter(path, false, Encoding.UTF8))
                 {
                     using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
                     {
@@ -48,6 +49,56 @@ namespace ZKSD.Utils
 
             return false;
         }
+
+
+
+        public static bool AppendCsv<T>(List<T> datas, string filePath = "logs/TagData/tag.csv")
+        {
+            try
+            {
+                var currentPath = Directory.GetCurrentDirectory();
+                var path = Path.Combine(currentPath, filePath);
+
+                // 确保目录存在  
+                var directoryPath = Path.GetDirectoryName(path);
+                if (!Directory.Exists(directoryPath))
+                {
+                    Directory.CreateDirectory(directoryPath);
+                }
+
+                // 使用 StreamWriter 追加内容  
+                using (var writer = new StreamWriter(path, true, Encoding.UTF8))
+                {
+                    Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+                    using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
+                    {
+                       // 如果文件为空，可以写入标题
+                        if (new FileInfo(path).Length == 0)
+                        {
+                            csv.WriteHeader<T>(); // 写入表头  
+                            csv.NextRecord();
+
+                        }
+
+                        foreach (T record in datas)
+                        {
+                            csv.WriteRecord(record);
+                            csv.NextRecord();
+                        }
+                    }
+                }
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                // 记录异常（可以考虑将异常记录到文件或监控系统中）  
+                Console.WriteLine($"写入 CSV 时发生错误: {ex.Message}");
+                return false;
+            }
+        }
+
+
         public static List<T> ReadCsv<T>(string filePath)
         {
             try

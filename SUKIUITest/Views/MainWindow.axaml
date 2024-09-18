@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450" Width="600" Height="400"
         x:Class="SUKIUITest.Views.MainWindow"
+        		xmlns:material="using:Material.Icons.Avalonia"
         xmlns:controls="clr-namespace:SukiUI.Controls;assembly=SukiUI"
          xmlns:theme="clr-namespace:SukiUI.Theme;assembly=SukiUI"
         x:DataType="vm:MainWindowViewModel"
@@ -23,6 +24,18 @@
 
 <Grid RowDefinitions="*,*">
 
+  <Button   Classes="Accent"   VerticalAlignment="Center"  Margin="10  0 0 0">
+    <StackPanel  Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+      <material:MaterialIcon
+        Height="20"
+        Kind="MagazineRifle"
+        Width="20" />
+      <TextBlock
+        FontWeight="SemiBold"	Text="登出"
+        VerticalAlignment="Center" />
+    </StackPanel>
+  </Button>
+  
   <ComboBox >
     <Button Width="100" Height="30" Content="添加" Command="{Binding aaa}"></Button>
     <ComboBox.ContextMenu>
@@ -33,6 +46,9 @@
     <ComboBoxItem Content="Option 1"/>
     <ComboBoxItem Content="Option 2"/>
     <ComboBoxItem Content="Option 3"/>
+    
+    
+    
   </ComboBox>
 
   </Grid>
