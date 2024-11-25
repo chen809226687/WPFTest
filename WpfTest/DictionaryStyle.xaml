@@ -1,0 +1,21 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+
+    <!--基础样式-->
+    <Style TargetType="Button">
+        <Setter Property="FontSize" Value="20"/>
+    </Style>
+
+    <!--继承基础样式 添加引用-->
+    <Style x:Key="login" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+        <Setter Property="Background" Value="#FF06C5F0"/>
+    </Style>
+
+    <!--继承基础样式 添加引用-->
+    <Style x:Key="quit" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+        <Setter Property="Background" Value="#FFF1F1F1"/>
+    </Style>
+
+
+</ResourceDictionary>
