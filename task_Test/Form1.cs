@@ -16,7 +16,10 @@ namespace task_Test
         public Form1()
         {
             InitializeComponent();
-            comboBox1.SelectedIndex = 0; // 设置第一个选项为默认选项
+
+
+
+            comboBox1.SelectedIndex = 0; // 设置第一个选项为默认
             button1.Select();
         }
 
@@ -24,6 +27,8 @@ namespace task_Test
         {
             await Task.Run(() =>
              {
+
+
                  int i = 0;
                  while (true)
                  {
